@@ -1,8 +1,9 @@
+import * as kv from './kv_store.tsx';
+
 import { Hono } from 'npm:hono';
 import { cors } from 'npm:hono/cors';
-import { logger } from 'npm:hono/logger';
 import { createClient } from 'jsr:@supabase/supabase-js@2';
-import * as kv from './kv_store.tsx';
+import { logger } from 'npm:hono/logger';
 
 const app = new Hono();
 
@@ -179,7 +180,7 @@ app.post('/make-server-0614540f/check-out', async (c) => {
     if (!existing) {
       return c.json({ error: 'No check-in found for today' }, 400);
     }
-
+// hi
     if (existing.checkOut) {
       return c.json({ error: 'Already checked out today' }, 400);
     }
